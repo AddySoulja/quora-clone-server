@@ -37,14 +37,13 @@ const deletePost = asyncHandler(async (req, res) => {
 });
 
 const populatePosts = asyncHandler(async (req, res) => {
-  // const posts = await Post.find({});
-  // if (posts) {
-  //   res.status(200).json({ globalPosts: posts });
-  // } else {
-  //   res.status(404);
-  //   throw new Error("No posts found");
-  // }
-  res.status(200).json({ ok: true, route: "/api/posts/" });
+  const posts = await Post.find({});
+  if (posts) {
+    res.status(200).json({ globalPosts: posts });
+  } else {
+    res.status(404);
+    throw new Error("No posts found");
+  }
 });
 
 export { populatePosts, createPost, readPost, updatePost, deletePost };
