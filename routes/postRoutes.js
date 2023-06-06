@@ -8,13 +8,13 @@ import {
 } from "../controllers/postController.js";
 import { protectMiddleware } from "../middleware/authMiddleware.js";
 
-const router = express.Router();
+const app = express.Router();
 
-router.get("/", populatePosts);
-router
+app.get("/", populatePosts);
+app
   .route("/edit")
   .post(protectMiddleware, createPost)
   .get(protectMiddleware, readPost)
   .put(protectMiddleware, updatePost)
   .delete(protectMiddleware, deletePost);
-export default router;
+export default app;
