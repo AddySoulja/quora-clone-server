@@ -7,7 +7,7 @@ import { errorHandler, notFoundHandler } from "./middleware/errorMiddleware.js";
 
 dotenv.config();
 import userRoutes from "./routes/userRoutes.js";
-// import postRoutes from "./routes/postRoutes.js";
+import postRoutes from "./routes/postRoutes.js";
 import connectDb from "./databaseConfig/configDb.js";
 
 const app = express();
@@ -20,7 +20,7 @@ app.use(cookieParser());
 app.use(cors());
 
 app.use("/api/users", userRoutes);
-app.use("/api/posts", (req, res) => res.send("hii from /api/posts"));
+app.use("/api/posts", postRoutes);
 
 // if (process.env.NODE_ENV === "production") {
 //   app.use(express.static(path.join(__dirname, "/frontend/dist")));
