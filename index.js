@@ -19,8 +19,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 
-app.use("/api/users", userRoutes());
-app.use("/api/posts", postRoutes());
+app.use("/api/users", userRoutes);
+app.use("/api/posts", () => postRoutes());
 
 // if (process.env.NODE_ENV === "production") {
 //   app.use(express.static(path.join(__dirname, "/frontend/dist")));
